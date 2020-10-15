@@ -26,7 +26,7 @@ public class ArraysTest {
     }
 
     @Test
-    @DisplayName("ArrayList Functions Test 1 - Adding")
+    @DisplayName("ArrayList Functions Test - Adding")
     void test3() {
         ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1,5,3,7,9));
         int addNum = 11;
@@ -36,12 +36,63 @@ public class ArraysTest {
     }
 
     @Test
-    @DisplayName("ArrayList Functions Test 1 - Removing")
+    @DisplayName("ArrayList Functions Test - Removing")
     void test4() {
         ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1,5,3,7,9));
+        ArrayList<Integer> arrC = new ArrayList<Integer>(arr);
         int addNum = 11;
         int removeNum = 3;
         int getNum = 4;
-        assertFalse(ArraysPractice.arrayListFunctions(arr, addNum, removeNum, getNum).contains(7));
+        assertFalse(ArraysPractice.arrayListFunctions(arrC, addNum, removeNum, getNum).contains(arr.get(removeNum)));
+    }
+
+    @Test
+    @DisplayName("ArrayList Functions Test - Setting Size")
+    void test5() {
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1,5,3,7,9));
+        ArrayList<Integer> arrC = new ArrayList<Integer>(arr);
+        int addNum = 11;
+        int removeNum = 3;
+        int getNum = 4;
+        assertEquals(arr.size(),ArraysPractice.arrayListFunctions(arrC, addNum, removeNum, getNum).get(0));
+    }
+
+    @Test
+    @DisplayName("ArrayList Functions Test - Getting")
+    void test6() {
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1,5,3,7,9));
+        ArrayList<Integer> arrC = new ArrayList<Integer>(arr);
+        int addNum = 11;
+        int removeNum = 3;
+        int getNum = 2;
+        assertEquals(arr.get(getNum),ArraysPractice.arrayListFunctions(arrC, addNum, removeNum, getNum).get(1));
+    }
+
+    @Test
+    @DisplayName("Summation Test 1")
+    void test7() {
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1,5,3,7,9));
+        assertEquals(25,ArraysPractice.summation(arr));
+    }
+
+    @Test
+    @DisplayName("Summation Test 2")
+    void test8() {
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(0,0,0,4,0,7,1,3,8,11));
+        assertEquals(34,ArraysPractice.summation(arr));
+    }
+
+    @Test
+    @DisplayName("SummationFor Test 1")
+    void test9() {
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1,5,3,7,9));
+        assertEquals(25,ArraysPractice.summationFor(arr));
+    }
+
+    @Test
+    @DisplayName("SummationFor Test 2")
+    void test10() {
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(0,0,0,4,0,7,1,3,8,11));
+        assertEquals(34,ArraysPractice.summationFor(arr));
     }
 }
